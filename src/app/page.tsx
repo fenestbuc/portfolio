@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import { data } from "../data";
 
 // Safe SVG Icons
@@ -25,6 +26,14 @@ const MailIcon = () => (
   </svg>
 );
 
+const LinkedinIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect width="4" height="12" x="2" y="9"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
+
 const MapPinIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 15 4 10a8 8 0 0 1 16 0"/>
@@ -39,7 +48,7 @@ const ArrowUpRight = () => (
   </svg>
 );
 
-// Animation Variants with explicit typing
+// Animation Variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -76,9 +85,12 @@ export default function Home() {
             <p className="text-2xl md:text-3xl text-neutral-400 font-medium tracking-tight">
               {data.title} @ <span className="text-neutral-200">{data.company}</span>
             </p>
+            <p className="text-xl font-mono text-neutral-500 max-w-2xl mt-4 border-l-2 border-neutral-800 pl-4">
+              "{data.shortBio}"
+            </p>
           </motion.div>
           
-          <motion.div variants={fadeInUp} className="text-neutral-300 text-lg md:text-xl leading-relaxed max-w-3xl space-y-6">
+          <motion.div variants={fadeInUp} className="text-neutral-300 text-lg md:text-xl leading-relaxed max-w-3xl space-y-6 pt-4">
             {data.about.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
@@ -87,6 +99,9 @@ export default function Home() {
           <motion.div variants={fadeInUp} className="flex items-center gap-5 pt-4">
             <a href={data.socials.twitter} target="_blank" rel="noopener noreferrer" className="p-3 bg-neutral-900 border border-neutral-800 rounded-full hover:bg-neutral-100 hover:text-neutral-900 transition-all duration-300 transform hover:scale-110 shadow-lg">
               <TwitterIcon />
+            </a>
+            <a href={data.socials.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-neutral-900 border border-neutral-800 rounded-full hover:bg-neutral-100 hover:text-neutral-900 transition-all duration-300 transform hover:scale-110 shadow-lg">
+              <LinkedinIcon />
             </a>
             <a href={data.socials.github} target="_blank" rel="noopener noreferrer" className="p-3 bg-neutral-900 border border-neutral-800 rounded-full hover:bg-neutral-100 hover:text-neutral-900 transition-all duration-300 transform hover:scale-110 shadow-lg">
               <GithubIcon />
@@ -99,7 +114,7 @@ export default function Home() {
 
         <div className="h-32"></div>
 
-        {/* Bento Grid Projects */}
+        {/* Bento Grid Projects with Imagery */}
         <motion.section 
           initial="hidden" 
           whileInView="visible" 
@@ -114,9 +129,8 @@ export default function Home() {
             </div>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
             {data.projects.map((project, idx) => {
-              // Map size to grid span
               let spanClass = "col-span-1 row-span-1";
               if (project.size === "large") spanClass = "col-span-1 md:col-span-2 row-span-1 md:row-span-2";
               if (project.size === "tall") spanClass = "col-span-1 row-span-1 md:row-span-2";
@@ -126,24 +140,77 @@ export default function Home() {
                 <motion.div 
                   variants={fadeInUp}
                   key={idx} 
-                  className={`glass-panel rounded-3xl p-8 flex flex-col group transition-all duration-500 hover:-translate-y-1 shadow-xl hover:shadow-2xl ${spanClass}`}
+                  className={`relative glass-panel overflow-hidden rounded-3xl p-8 flex flex-col group transition-all duration-500 hover:-translate-y-1 shadow-xl hover:shadow-2xl ${spanClass}`}
                 >
-                  <h3 className="text-2xl font-medium mb-3 text-neutral-100 group-hover:text-white transition-colors">
-                    {project.name}
-                  </h3>
-                  <p className="text-neutral-400 text-sm md:text-base leading-relaxed mb-6 flex-grow">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full bg-neutral-950 border border-neutral-800/80 text-neutral-300">
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Background Image handling if available */}
+                  {project.image && (
+                    <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                       <Image 
+                          src={project.image} 
+                          alt={project.name} 
+                          fill 
+                          className="object-cover mix-blend-overlay grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                       <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent"></div>
+                    </div>
+                  )}
+
+                  <div className="relative z-10 flex flex-col h-full">
+                    <h3 className="text-2xl font-medium mb-3 text-neutral-100 group-hover:text-white transition-colors drop-shadow-md">
+                      {project.name}
+                    </h3>
+                    <p className="text-neutral-300 text-sm md:text-base leading-relaxed mb-6 flex-grow drop-shadow">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1 text-xs font-medium rounded-full bg-neutral-950/80 backdrop-blur-md border border-neutral-800/80 text-neutral-300">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
+          </div>
+        </motion.section>
+
+        <div className="h-32"></div>
+
+        {/* Substack Essays Section */}
+        <motion.section 
+          initial="hidden" 
+          whileInView="visible" 
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="space-y-8"
+        >
+           <motion.div variants={fadeInUp} className="flex items-center justify-between">
+            <h2 className="text-3xl font-medium tracking-tight text-neutral-100">Insights & Essays</h2>
+            <a href={data.socials.substack} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors">
+              Read on Substack <ArrowUpRight />
+            </a>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {data.essays.map((essay, idx) => (
+              <motion.a 
+                href={essay.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={fadeInUp}
+                key={idx}
+                className="glass-panel p-6 rounded-2xl group transition-all duration-300 hover:bg-neutral-900/80 hover:border-neutral-700 block"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-medium text-neutral-200 group-hover:text-white">{essay.title}</h3>
+                  <ArrowUpRight />
+                </div>
+                <p className="text-neutral-400 leading-relaxed text-sm">{essay.description}</p>
+                <p className="mt-4 text-xs font-mono text-neutral-500 uppercase">{essay.date}</p>
+              </motion.a>
+            ))}
           </div>
         </motion.section>
 
