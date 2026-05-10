@@ -2,20 +2,22 @@ export const data = {
   name: "Vaibhav Sharma",
   title: "Founder & CEO",
   company: "Kubar Labs",
-  shortBio: "Building the JPMorgan Chase of the tokenized world.",
+  shortBio: "Dropout building the JPMorgan Chase of the tokenized world.",
   about: [
-    "I am a 22-year-old founder operating at the intersection of financial infrastructure, AI agents, and extreme lean execution. My core thesis is simple: complex proxies in the financial system must be collapsed into direct, scalable protocols.",
+    "I am a 22-year-old founder operating at the intersection of financial infrastructure, AI agents, and extreme lean execution. Dropping out of Ashoka University to build full-time, my core thesis is simple: complex proxies in the financial system must be collapsed into direct, scalable protocols.",
     "At Kubar Labs, we are solving India's $330B MSME credit gap. We aren't building just another underwriting engine—we are building NavDhan, the core embedded credit infrastructure that makes capital plug-and-play for 64 million underbanked businesses.",
-    "I believe in the e/acc philosophy: progress requires building aggressively. When I'm not architecting fintech protocols, I build autonomous AI systems like Hermes—a CLI-native second brain with persistent memory—to accelerate software engineering velocity to the absolute limit."
+    "Backed by Nvidia Inception, Perplexity Fellowship, and recognized in the WTFund Top 25 by Nikhil Kamath, I believe in the e/acc philosophy: progress requires building aggressively.",
+    "When I'm not architecting fintech protocols or researching UniSwap V3 dynamic liquidity pools, I build autonomous AI systems—like my CLI-native agent Hermes and open-source models—to push software engineering velocity to the absolute limit."
   ],
   manifesto: [
     "India's 64M MSMEs contribute 30% of GDP, yet 86% lack access to formal credit.",
-    "They are choked by 72% APRs and 90-day payment cycles.",
+    "B2B fintech infra is the real story. Not just AI hype, but quiet, scalable lending rails.",
     "Traditional lending relies on outdated proxies. We build alternate credit paths.",
+    "The funny thing about AI is people who think writing software was the hard part of building a company.",
     "Kubar Protocol is tokenizing trade finance. NavDhan is the marketplace.",
     "The 10-year vision: The JPMorgan Chase of the tokenized world."
   ],
-  location: "Bengaluru, India",
+  location: "Delhi & Bengaluru, India",
   socials: {
     twitter: "https://x.com/fenestbuc",
     github: "https://github.com/fenestbuc",
@@ -41,8 +43,26 @@ export const data = {
     {
       company: "Kubar Labs",
       role: "Founder & CEO",
-      date: "2023 — Present",
-      description: "Architecting the infrastructure layer for MSME credit. Leading a core team of 13 engineers and operators to deploy NavDhan (embedded marketplace) and Kubar Protocol (tokenized trade finance via MLETR). Winner of FinVision Award for Most Innovative Startup (NIBM Pune) and Startup Mahakumbh Popular Choice Award."
+      date: "May 2024 — Present",
+      description: "Architecting the infrastructure layer for MSME credit. Leading a core team to deploy NavDhan (embedded marketplace) and Kubar Protocol (tokenized trade finance). Driving processing costs to sub-₹100 via proprietary architecture. Winner of FinVision Award and Startup Mahakumbh Popular Choice Award."
+    },
+    {
+      company: "Uniswap Foundation",
+      role: "Builder in Residence (Hook Incubator Cohort 2)",
+      date: "April 2025 — July 2025",
+      description: "Researched DeFi applications of UniSwap V3 Dynamic Liquidity Pools for cross-border trade financing. Designed tokenization frameworks converting trade documentation into programmable liquidity pools."
+    },
+    {
+      company: "Polkadot Blockchain Academy",
+      role: "Founder's Track, Cohort 4 (Hong Kong)",
+      date: "Jan 2024 — Feb 2024",
+      description: "Youngest ever selected for this prestigious blockchain entrepreneurship program. Focused on advanced blockchain architecture and protocol design fundamentals."
+    },
+    {
+      company: "Ashoka University",
+      role: "Machine Learning Research Assistant",
+      date: "May 2023 — Oct 2023",
+      description: "Conducted ML research for CO2 capture utilization. Applied quantum computing and astrophysics principles to environmental engineering challenges."
     }
   ],
   projects: [
@@ -61,30 +81,30 @@ export const data = {
       image: "/media/hermes.png"
     },
     {
-      name: "Kubar Protocol",
-      description: "A blockchain-powered financing platform designed to tokenize trade finance assets, bridging DeFi liquidity with real-world MSME requirements.",
-      tags: ["Web3", "RWA", "Smart Contracts"],
+      name: "OpenCode Go",
+      description: "Open-source Hermes skill (v2) bridging autonomous AI agents with the OpenCode CLI. Providing models with 262K context windows for massive project refactors.",
+      tags: ["Open Source", "AI Tooling", "LLMs"],
       size: "wide",
       image: "/media/sde.png"
+    },
+    {
+      name: "Chunked Code Gen",
+      description: "Open-source chunked code generation skill for Hermes, integrating binary support and advanced patch-bypass capabilities to solve real generation blockers.",
+      tags: ["Open Source", "AI Tooling"],
+      size: "square"
     },
     {
       name: "grant-agent",
       description: "AI-driven platform for Indian startup grants discovery and application auto-generation.",
       tags: ["Next.js", "NestJS", "Modal.com"],
       size: "square"
-    },
-    {
-      name: "SDE-Platform",
-      description: "Internal engineering platform optimizing software development workflows and CI/CD.",
-      tags: ["Platform Engineering", "Tooling"],
-      size: "square"
     }
   ],
   capabilities: [
     "Product Strategy & GTM",
-    "AI Agent Architecture",
+    "Enterprise Blockchain & DLT",
     "Fintech Infrastructure",
-    "High-Performance Engineering",
+    "AI Agent Architecture",
     "RAG & Vector Memory",
     "Lean Execution (e/acc)"
   ]
