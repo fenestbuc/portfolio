@@ -13,7 +13,7 @@ export const data = {
       company: "Kubar Labs",
       role: "Founder & Head of Product",
       date: "Present",
-      description: "Building NavDhan, an embedded credit marketplace and credit identity layer. Piloting with Clix Capital and partnering with AgriGrader. Winner of FinVision Award for Most Innovative Startup (NIBM Pune) and Startup Mahakumbh Popular Choice Award."
+      description: "Building NavDhan, an embedded credit marketplace and credit identity layer. Winner of FinVision Award for Most Innovative Startup (NIBM Pune) and Startup Mahakumbh Popular Choice Award."
     }
   ],
   projects: [
@@ -31,6 +31,16 @@ export const data = {
       name: "grant-agent",
       description: "AI platform for Indian startup grants discovery & application auto-generation.",
       tags: ["Next.js", "NestJS", "Python", "Modal"]
+    },
+    {
+      name: "Memora",
+      description: "RAG worker plugin providing semantic search and long-term memory for AI agents.",
+      tags: ["AI", "RAG", "Memory"]
+    },
+    {
+      name: "SDE-Platform",
+      description: "Internal platform optimizing software development engineering and workflows.",
+      tags: ["Platform", "Engineering", "Internal Tooling"]
     },
     {
       name: "hermes-chunked-code-generation",
